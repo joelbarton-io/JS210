@@ -1,20 +1,28 @@
-function placeABet(guess) {
-  let generateRandomInt = (function generateRandomInt() {
-    return Math.floor(Math.random() * 25) + 1;
-  });
-
-  const winningNumber = generateRandomInt();
-
-  if (guess < 1 || guess > 25) {
-    return 'Invalid guess. Valid guesses are between 1 and 25.';
-  }
-
-  if (guess === winningNumber) {
-    return "Congratulations, you win!";
-  } else {
-    return "Wrong-o! You lose.";
-  }
+function wantToVisit(museum, city) {
+    return (
+        museum.includes('Computer') ||
+        (museum.includes('Science') &&
+            !(
+                (museum.includes('Modern') && museum.includes('Art')) ||
+                museum.includes('Andy Warhol') ||
+                city === 'Amsterdam'
+            ))
+    )
 }
 
-const userGuess = parseInt(prompt('Input a guess between 1-25'), 10);
-alert(placeABet(userGuess));
+// Tests (should all print 'true')
+
+console.log(wantToVisit('NEMO Science Museum', 'Amsterdam') === true)
+console.log(
+    wantToVisit('Andy Warhol Museum of Modern Art', 'Medzilaborce') === true
+)
+console.log(wantToVisit('Moco: Modern Contemporary Art', 'Amsterdam') === true)
+console.log(wantToVisit('Van Gogh Museum', 'Amsterdam') === false)
+console.log(wantToVisit('Andy Warhol Museum', 'Melbourne') === false)
+console.log(wantToVisit('Computer Games Museum', 'Berlin') === true)
+console.log(
+    wantToVisit('National Museum of Nature and Science', 'Tokyo') === true
+)
+console.log(wantToVisit('Museum of Modern Art', 'New York') === false)
+console.log(wantToVisit('El Paso Museum of Archaeology', 'El Paso') === false)
+console.log(wantToVisit('National Museum of Modern Art', 'Paris') === false)

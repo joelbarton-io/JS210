@@ -1,6 +1,24 @@
 {
+  "name": "js210",
+  "version": "1.0.0",
+  "description": "n/a",
+  "main": "random_lesson5_stuff.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelbarton-io/JS210.git"
+  },
+  "author": "joel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joelbarton-io/JS210/issues"
+  },
+  "homepage": "https://github.com/joelbarton-io/JS210#readme",
   "devDependencies": {
     "eslint": "^8.22.0",
-    "prettier": "^2.7.1"
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
   }
 }
