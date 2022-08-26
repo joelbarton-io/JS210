@@ -1,20 +1,28 @@
 // _Closure:general_
 
-// function test() {
-//   const denom = 3;
-//   const hi = 'hi';
+// const globalVariable = 'I\'m global';
 
-//   return function myFn(numer) {
-//     // numer = 8;
-//     return (numer / denom);
-//   };
+// function main() { // -> { globalVariable }
+//   const otherVar = 'hello';
+
+//   function fnGenerator() { // -> { otherVar }
+//     const denom = 3;
+
+//     function returnedFn(numer) { // -> { denom }
+//       // console.log(otherVar);
+//       return (numer / denom);
+//     }
+//     return returnedFn;
+//   }
+
+//   const divByThree = fnGenerator();
+
+//   console.log(
+//     divByThree(9),
+//   );
 // }
 
-// const divByThree = test();
-
-// console.log(
-//   divByThree(9),
-// );
+// main();
 
 // _Closure:w/ reassignment_
 
@@ -140,4 +148,136 @@
 //   otherArr[-1], // 'hello'
 // );
 
+// _re:object destructuring
+// function xyzzy(foo, bar, qux) {
+//   return {
+//     foo,
+//     bar,
+//     answer: qux,
+//   };
+// }
 
+// const myObj = xyzzy('a', 'b', 'c');
+
+// console.log(myObj);
+
+// const { foo, bar, qux } = myObj;
+
+// console.log(
+//   foo,
+//   bar,
+//   qux,
+// )
+
+// _re:Arrays as objects
+
+// const arr = [1];
+
+// arr['0'] = 'zero';
+// arr[-1] = 1;
+// arr['5'] = 'five';
+// arr[10] = undefined;
+
+// console.log(
+//   arr,
+//   arr.length,
+//   Object.values(arr).length,
+//   Object.keys(arr),
+//   typeof arr[3],
+// );
+
+// _re:manipulating length of array
+
+// const arr = [];
+
+// arr['-1'] = 'negative 1';
+// arr[0] = 'zero';
+// arr[1] = 'one';
+
+// arr.length = -1;
+// console.log(arr);
+
+// re:forin_forof ricky's example
+
+// const myName = 'Joel';
+// console.log(myName); // => 'Joel'
+// const myNameAry = ['J', 'o', 'e', 'l'];
+// const myNameObj = {
+//   J: 'J',
+//   o: 'o',
+//   e: 'e',
+//   l: 'l',
+// };
+
+// for (let i = 0; i < myName.length; i++)
+// for k in // => use in all Strings, Arrays, and Objects
+// for v of // => use in Strings and Arrays, can't use in simple Objects
+// for (let char of myName) {
+//   console.log(char);
+// }
+
+// for (let elt of myNameAry) {
+//   console.log(elt);
+// }
+
+// Remember your fork
+// for (let key in myNameObj) {
+//   console.log(myNameObj[key]);
+// }
+// let a
+// let baby = Object.create(myNameObj);
+// baby['joel'] = 'hello';
+
+// for (let key in baby) {
+//   if (baby.hasOwnProperty(key)) {
+//     console.log(key);
+//   }
+// }
+
+// console.log(Object.keys(baby)) // baby's own keys
+
+// _re: expressions vs declarations
+
+// function fnGenerator() {
+//   const denom = 3;
+
+//   function returnedFn(numer) {
+//     return (numer / denom);
+//   }
+//   return returnedFn;
+// }
+
+// const divByThree = fnGenerator();
+
+// console.log(
+//   divByThree(9),
+// );
+
+// _re:switch statements
+
+// switch (Array.isArray(arr)) {
+//   case (true):
+//     console.log(1);
+//   case (false):
+//     console.log(2);
+//   case (true):
+//     console.log(3);
+//   default:
+//     console.log('default');
+// }
+
+// _re:expressions
+
+// let b;
+
+// console.log(
+//   () => 'a',
+//   b = () => 'b',
+//   b(),
+// );
+
+// _re:immediately invoked function
+
+// (function myFn(...args) {
+//   console.log(args.map((el, idx) => el * idx));
+// }(1, 2, 3, 4, 5));
