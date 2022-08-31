@@ -270,11 +270,12 @@
 
 // let b;
 
-// console.log(
-//   () => 'a',
-//   b = () => 'b',
-//   b(),
-// );
+console.log(
+  () => 'a',
+  function c() { return 'c' },
+  b = () => 'b',
+  b(),
+);
 
 // _re:immediately invoked function
 
