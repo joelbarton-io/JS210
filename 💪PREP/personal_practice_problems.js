@@ -270,15 +270,37 @@
 
 // let b;
 
-console.log(
-  () => 'a',
-  function c() { return 'c' },
-  b = () => 'b',
-  b(),
-);
+// console.log(
+//   () => 'a',
+//   function c() { return 'c' },
+//   b = () => 'b',
+//   b(),
+// );
 
 // _re:immediately invoked function
 
 // (function myFn(...args) {
 //   console.log(args.map((el, idx) => el * idx));
 // }(1, 2, 3, 4, 5));
+
+// _re:conditionals and declaration
+// let a;
+
+// if (a = 1) {
+//   a = 2;
+// }
+
+// console.log(a);
+
+// _re:delete keyword w/ objects
+
+const arr = [1, 2];
+const obj = { a: 'a', b: 'b' };
+
+delete arr[0];
+delete obj.a;
+
+console.log(
+  arr,
+  obj,
+);
